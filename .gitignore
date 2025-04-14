@@ -398,3 +398,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+#Ignore Visual Stusio folder and files
+.vs/
+*.user
+*.suo
+*.vsidx
+*.vssscc
+*.dbmdl
+*.bak
+*,log
