@@ -80,51 +80,63 @@ namespace ChatBoxSecurityPoe
             Program.TypeEffect($"Nice to meet you, {user.Name.ToUpper()}!");
             Console.ResetColor();
 
-            // User interaction
-            Console.WriteLine("Ask me something?");
-            Console.Write("\nYour Question: ");
-            string question = Console.ReadLine().ToLower();
+            // User interaction loop
+            string question;
+            while (true)
+            {
+                Console.WriteLine("Ask me something, or type 'bye' to exit.");
+                Console.Write("\nYour Question: ");
+                question = Console.ReadLine().ToLower();
 
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.White;
+                if (question == "bye")
+                {
+                    Program.TypeEffect("Goodbye! Stay safe in the digital world.");
+                    break;
+                }
 
-            if (string.IsNullOrWhiteSpace(question))
-            {
-                Program.TypeEffect("I didn't quite understand that. Could you rephrase?");
-            }
-            else if (question.Contains("how are you"))
-            {
-                Program.TypeEffect("I'm functioning optimally, thank you!");
-            }
-            else if (question.Contains("purpose"))
-            {
-                Program.TypeEffect("My purpose is to help users stay safe in the digital world.");
-            }
-            else if (question.Contains("ask"))
-            {
-                Program.TypeEffect("You can ask me about:");
-                Program.TypeEffect("Password safety");
-                Program.TypeEffect("Phishing Attacks");
-                Program.TypeEffect("Safe browsing habits");
-            }
-            else if (question.Contains("password"))
-            {
-                Program.TypeEffect("Always use complex passwords and avoid reusing them. Consider a password manager.");
-            }
-            else if (question.Contains("phishing"))
-            {
-                Program.TypeEffect("Phishing is a cyber attack that tricks you into revealing sensitive information. Never click unknown links.");
-            }
-            else if (question.Contains("browsing"))
-            {
-                Program.TypeEffect("Use HTTPS sites, enable browser security settings, and don't download from untrusted sources.");
-            }
-            else
-            {
-                Program.TypeEffect("I didn't quite understand that. Could you rephrase?");
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.White;
+
+                // Handle different user queries
+                if (string.IsNullOrWhiteSpace(question))
+                {
+                    Program.TypeEffect("I didn't quite understand that. Could you rephrase?");
+                }
+                else if (question.Contains("how are you"))
+                {
+                    Program.TypeEffect("I'm functioning optimally, thank you!");
+                }
+                else if (question.Contains("purpose"))
+                {
+                    Program.TypeEffect("My purpose is to help users stay safe in the digital world.");
+                }
+                else if (question.Contains("ask"))
+                {
+                    Program.TypeEffect("You can ask me about:");
+                    Program.TypeEffect("Password safety");
+                    Program.TypeEffect("Phishing Attacks");
+                    Program.TypeEffect("Safe browsing habits");
+                }
+                else if (question.Contains("password"))
+                {
+                    Program.TypeEffect("Always use complex passwords and avoid reusing them. Consider a password manager.");
+                }
+                else if (question.Contains("phishing"))
+                {
+                    Program.TypeEffect("Phishing is a cyber attack that tricks you into revealing sensitive information. Never click unknown links.");
+                }
+                else if (question.Contains("browsing"))
+                {
+                    Program.TypeEffect("Use HTTPS sites, enable browser security settings, and don't download from untrusted sources.");
+                }
+                else
+                {
+                    Program.TypeEffect("I didn't quite understand that. Could you rephrase?");
+                }
+
+                Console.ResetColor();
             }
 
-            Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("\nPress any key to exit...");
             Console.ResetColor();
