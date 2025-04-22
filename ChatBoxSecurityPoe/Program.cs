@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Threading;
+using NAudio.Wave;
 
 namespace ChatBoxSecurityPoe
 {
-    // User class to store user-related information
     public class User
     {
         public string Name { get; set; }
     }
 
-    // Program class to handle the security chatbot logic
     public class Program
     {
-        // Static method to display type effect text
         public static void TypeEffect(string text, int delay = 30)
         {
             foreach (char c in text)
@@ -23,7 +21,6 @@ namespace ChatBoxSecurityPoe
             Console.WriteLine();
         }
 
-        // Static method to display ASCII art
         public static void DisplayAsciiAr()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -43,17 +40,37 @@ namespace ChatBoxSecurityPoe
 ");
             Console.ResetColor();
         }
+
+        public static void PlayWav(string path)
+        {
+            try
+            {
+                using (AudioFileReader audioFile = new AudioFileReader(path))
+                using (WaveOutEvent outputDevice = new WaveOutEvent())
+                {
+                    outputDevice.Init(audioFile);
+                    outputDevice.Play();
+
+                    while (outputDevice.PlaybackState == PlaybackState.Playing)
+                    {
+                        Thread.Sleep(100);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error playing sound: " + ex.Message);
+                Console.ResetColor();
+            }
+        }
     }
 
-    // Main method class to initiate the program
     public class MainMethod
     {
-        // Entry point for the application
         public static void Main(string[] args)
         {
             Console.Title = "Cybersecurity Awareness Bot";
-
-            // Initialize and call methods from Program class
             Program.DisplayAsciiAr();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -63,7 +80,6 @@ namespace ChatBoxSecurityPoe
             Console.WriteLine("Please enter your name:  ");
             string inputName = Console.ReadLine();
 
-            // Ensure the name is not empty or whitespace
             while (string.IsNullOrWhiteSpace(inputName))
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -72,15 +88,18 @@ namespace ChatBoxSecurityPoe
                 inputName = Console.ReadLine();
             }
 
-            // Create user object
             User user = new User { Name = inputName };
             Console.Clear();
             Program.DisplayAsciiAr();
             Console.ForegroundColor = ConsoleColor.Green;
+
+            // 👇 Use your provided path
+            string audioPath = @"C:\Users\lab_services_student\Desktop\POE PT1 PROG\ChatBoxSecurityPoe\ChatBoxSecurityPoe\Audio\Welcome message.wav";
+            Program.PlayWav(audioPath);
+
             Program.TypeEffect($"Nice to meet you, {user.Name.ToUpper()}!");
             Console.ResetColor();
 
-            // User interaction loop
             string question;
             while (true)
             {
@@ -97,7 +116,6 @@ namespace ChatBoxSecurityPoe
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
 
-                // Handle different user queries
                 if (string.IsNullOrWhiteSpace(question))
                 {
                     Program.TypeEffect("I didn't quite understand that. Could you rephrase?");
