@@ -11,6 +11,23 @@ namespace ChatBoxSecurityPoe
 
     public class Program
     {
+        public static Dictionary<string, string> memory = new Dictionary<string, string>();
+        public static Dictionary<string, string> keywordResponses = new Dictionary<string, string>
+{
+    {"password", "Make sure to use strong, unique passwords for each account. Avoid using personal details."},
+    {"scam", "Be cautious of unsolicited messages. Never share personal info or click unknown links."},
+    {"privacy", "Review your app permissions and limit the information you share online."}
+};
+
+        public static Dictionary<string, string> sentimentResponses = new Dictionary<string, string>
+{
+    {"worried", "It's completely understandable to feel that way. Let's go through some tips to ease your concern."},
+    {"curious", "Great to see your curiosity! Let's explore that topic further."},
+    {"frustrated", "Cybersecurity can be overwhelming at times. You're not alone—let's take it step by step."}
+};
+
+        public static string lastTopic = "";
+
         public static void TypeEffect(string text, int delay = 30)
         {
             foreach (char c in text)
