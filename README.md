@@ -1,69 +1,56 @@
-## Cybersecurity Awareness Bot
-This is a console-based chatbot application built in C# designed to educate users about cybersecurity practices. It uses ASCII art, sound effects, and a typewriter-style output for a more engaging experience.
+# Cybersecurity Awareness Chatbot
 
-## Project Structure
-User class: Represents the user interacting with the bot.
-
-Program class: Contains the main logic including:
-
-ASCII art display
-
-Text typing effect
-
-Audio playback
-
-MainMethod class: Contains the Main() function which serves as the entry point for the application.
+This is a console-based C# chatbot designed to educate users about essential cybersecurity practices. It simulates an interactive conversation to help users understand topics like password safety, phishing attacks, scams, and online privacy.
 
 ## Features
- User Input Handling
-Prompts the user to enter their name and validates that it's not empty.
 
-ASCII Art
-Displays stylized welcome ASCII art in magenta color for a cool visual effect.
+- Dynamic Responses: Recognizes keywords like "password", "phishing", "scam", and "privacy" and responds with random helpful tips.
+- Sentiment Detection: Detects basic sentiments (e.g., "worried", "curious", "frustrated") and adjusts tone to be empathetic or supportive.
+- Memory and Recall: Remembers the user's name and preferred cybersecurity topic to personalize responses.
+- Keyword Recognition: Scans user input for specific cybersecurity-related keywords and responds accordingly.
+- Conversation Flow: Supports ongoing dialogue without restarting the session.
+- Error Handling: Handles unknown or unexpected inputs with default fallback responses.
+- Modular Code Design: Code is split into multiple classes for maintainability and future expansion.
 
-## Audio Playback
-Plays a .wav audio file as a welcome message. (Make sure the file path is correct.)
+## Project Structure
 
-## Typewriter Effect
-Prints a message one character at a time to simulate a typing effect.
+ChatBoxSecurityPoe/
+│
+├── Program.cs                 # Entry point; handles UI and flow
+├── ChatBot.cs                 # Main logic for chatbot interaction
+├── ChatMemory.cs              # Stores user information and interests
+├── CyberKeywordResponder.cs   # Manages cybersecurity topics and tips
+├── SentimentAnalyzer.cs       # Detects and responds to user sentiment
+├── User.cs                    # User model with basic properties
 
-Basic Chatbot Functionality
-Responds to a users input with relevant cybersecurity tips:
+## Technologies Used
 
-Password safety
+- C#
+- .NET Console Application
+- NAudio (for optional WAV file playback)
 
-Phishing attack awareness
+## Getting Started
 
-Safe browsing habits
+1. Clone or download the repository.
+2. Open the solution in Visual Studio.
+3. Ensure the NAudio package is installed via NuGet if you plan to use the audio features.
+4. Build and run the project.
 
-Also includes fun conversational responses like “How are you?”
+## Usage
 
-## Audio File
-Make sure to update the path to the .wav file:
+- The bot begins by greeting the user and asking for their name.
+- Users can ask questions or express concerns using natural language.
+- The bot identifies cybersecurity keywords and sentiment to provide appropriate guidance.
+- Type `bye` to exit the application.
 
-csharp
-Copy
-Edit
-string audioPath = @"C:\Your\Path\To\Welcome message.wav";
-If the file cannot be found or can't be played, an error will be shown in red.
+## Example Interactions
 
-## How to Run
-Open the project in Visual Studio or any C# compatible IDE.
+User: I'm worried about online scams.  
+Bot: It's completely understandable to feel that way. Scammers can be very convincing. Let me share some tips to help you stay safe.
 
-Ensure NAudio is installed (via NuGet).
+User: Tell me about password safety.  
+Bot: Make sure to use strong, unique passwords for each account. Avoid using personal details in your passwords.
 
-Updated the audioPath to point to the valid .wav file.
+## License
 
-Run the project.
-
-## Dependencies
-[.NET Framework/Core]
-
-NAudio – For audio playback
-
-## Notes
-Console colors are used for a better UI experience.
-
-The bot will only answer to limited pre-programmed questions.
-
-
+This project is intended for educational use and may be reused or modified with proper attribution.
