@@ -1,56 +1,82 @@
-# Cybersecurity Awareness Chatbot
+# Cybersecurity Awareness Chatbot (WPF App)
 
-This is a console-based C# chatbot designed to educate users about essential cybersecurity practices. It simulates an interactive conversation to help users understand topics like password safety, phishing attacks, scams, and online privacy.
+This is a full-featured desktop chatbot application built using **C# and WPF** (Windows Presentation Foundation). Designed as part of a cybersecurity awareness project, the chatbot provides educational tips, interactive quizzes, and task reminders for practicing better digital safety.
 
-## Features
+## YouTube Demonstration
 
-- Dynamic Responses: Recognizes keywords like "password", "phishing", "scam", and "privacy" and responds with random helpful tips.
-- Sentiment Detection: Detects basic sentiments (e.g., "worried", "curious", "frustrated") and adjusts tone to be empathetic or supportive.
-- Memory and Recall: Remembers the user's name and preferred cybersecurity topic to personalize responses.
-- Keyword Recognition: Scans user input for specific cybersecurity-related keywords and responds accordingly.
-- Conversation Flow: Supports ongoing dialogue without restarting the session.
-- Error Handling: Handles unknown or unexpected inputs with default fallback responses.
-- Modular Code Design: Code is split into multiple classes for maintainability and future expansion.
+Watch the full walkthrough of the chatbot on YouTube:
 
-## Project Structure
+ [Click to Watch](https://youtu.be/vP8S2_uM5lQ?si=JY0xc7NBs9jMCuHz)  
 
-ChatBoxSecurityPoe/
-│
-├── Program.cs                 # Entry point; handles UI and flow
-├── ChatBot.cs                 # Main logic for chatbot interaction
-├── ChatMemory.cs              # Stores user information and interests
-├── CyberKeywordResponder.cs   # Manages cybersecurity topics and tips
-├── SentimentAnalyzer.cs       # Detects and responds to user sentiment
-├── User.cs                    # User model with basic properties
 
-## Technologies Used
+---
 
-- C#
-- .NET Console Application
-- NAudio (for optional WAV file playback)
+##  Features
 
-## Getting Started
+###  Smart Chatbot (Simulated NLP)
+- Understands varied user inputs using keyword detection.
+- Handles casual conversation and directs users to specific features.
+- Uses simulated AI typing with asynchronous delays to mimic human-like interaction.
 
-1. Clone or download the repository.
-2. Open the solution in Visual Studio.
-3. Ensure the NAudio package is installed via NuGet if you plan to use the audio features.
-4. Build and run the project.
+###  Cybersecurity Quiz Game
+- 10 randomized questions (Multiple Choice and True/False).
+- Instant feedback and scoring at the end of the quiz.
+- Educational content built-in.
 
-## Usage
+###  Task Manager & Reminder System
+- Add cybersecurity-related tasks via chat.
+- Set reminders like "Remind me in 3 days".
+- Automatic alerts when reminders are due.
+- Example:  
+  `User: Add task - Enable 2FA`  
+  `Bot: Would you like a reminder?`  
+  `User: Yes, remind me in 3 days.`
 
-- The bot begins by greeting the user and asking for their name.
-- Users can ask questions or express concerns using natural language.
-- The bot identifies cybersecurity keywords and sentiment to provide appropriate guidance.
-- Type `bye` to exit the application.
+###  Activity Log
+- Tracks all interactions like tasks added, quiz attempts, and reminders.
+- Type `"activity log"` or `"what have you done"` to review your history.
 
-## Example Interactions
+---
 
-User: I'm worried about online scams.  
-Bot: It's completely understandable to feel that way. Scammers can be very convincing. Let me share some tips to help you stay safe.
+##  Technologies Used
 
-User: Tell me about password safety.  
-Bot: Make sure to use strong, unique passwords for each account. Avoid using personal details in your passwords.
+- **C# (.NET 6 or newer recommended)**
+- **WPF/XAML UI**
+- **DispatcherTimer** for task scheduling
+- **Collections**: Lists, Dictionaries
+- **Asynchronous Programming** (`async`/`await`)
 
-## License
+---
 
-This project is intended for educational use and may be reused or modified with proper attribution.
+##  Getting Started
+
+1. Clone or download this repository.
+2. Open the `.sln` file in **Visual Studio**.
+3. Build and run the project.
+4. Type into the chatbot and explore:
+   - `"Start quiz"` to launch the quiz.
+   - `"Add task"` or `"Set reminder"` to manage your cybersecurity goals.
+   - `"Password"` or `"Scam"` to get safety tips.
+
+---
+
+##  Author
+
+**Selepe Samson**  
+Built as part of a university POE cybersecurity awareness project (PROG6221, 2025)
+
+---
+
+##  Contributions
+
+Pull requests and suggestions are welcome!  
+Please fork this repo and create a pull request to propose changes or enhancements.
+
+---
+
+##  License
+
+MIT License — Free to use for educational and personal projects.
+
+---
+
